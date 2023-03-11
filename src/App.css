@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+/* 글로벌 코드 작성하기 */
+
+
+
+
+
+
+
+/* Navbar */
+a {
+  text-decoration: none;
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#nav {
   display: flex;
-  flex-direction: column;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+  background-color: pink;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+}
+
+.nav__ul {
+  display: flex;
+}
+
+.nav__ul li {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.nav__title {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav__title a {
+  margin: 0px 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav__right {
+  display: flex;
+}
+
+.nav__right div,
+.nav__right a {
+  margin: 0px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav__right span {
+  margin: 0px 4px;
+}
+
+.nav__github:nth-child(3) {
+  display: none;
+}
+
+
+/* Media query */
+@media screen and (max-width: 1024px) {
+  :root {
+    /* 반응형 글로벌코드 작성하기 (1024px) */
+    font-size: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  #nav {
+    padding: 20px 20px;
   }
+
+  .nav__ul li {
+    display: none;
+  }
+
+  .nav__right span {
+    display: none;
+  }
+
+  .nav__github:nth-child(2) {
+    display: none;
+  }
+
+  .nav__github:nth-child(3) {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    /* 반응형 글로벌코드 작성하기 (768px) */
+    font-size: 15px;
+  }
+
 }
