@@ -16,6 +16,16 @@ code {
   box-sizing: border-box;
 }
 
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
 
+a {
+  text-decoration: none;
+  color: black;
+}
 
 
