@@ -1,6 +1,6 @@
 import './App.css';
 
-import Navbar from './Navbar.js';
+import Navbar from './Pages/Navbar.js';
 
 
 

@@ -1,18 +1,22 @@
-import './App.css';
+import '../App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faLanguage, faArrowUpRightFromSquare, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setToggle } from '../store.js';
 
 
 
 function Navbar() {
 
-  const [toggle, setToggle] = useState(true);
+  const toggle = useSelector((state)=>state.toggleSlice.toggle);
+  const dispatch = useDispatch();
 
   const handleToggle = () => {
-    setToggle(!toggle);
+    dispatch(setToggle(!toggle));
   };
+
 
   useEffect(() => {
     const handleResize = () => {
