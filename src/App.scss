@@ -125,6 +125,28 @@ ul {
 }
 
 
+/* Errorpage */
+#errorpage {
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+
+#errorpage p {
+  font-size: $font-large;
+}
+
+#errorpage button {
+  font-size: $font-regular;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 15px;
+  color: white;
+  background-color: green;
+}
+
+
 
 
 /* Media query */
