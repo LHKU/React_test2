@@ -2,7 +2,7 @@ import '../App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faLanguage, faArrowUpRightFromSquare, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToggle } from '../store.js';
 
@@ -10,14 +10,13 @@ import { setToggle } from '../store.js';
 
 function Navbar() {
 
+  // Hide and show the li tag of toggle (Initial value is set in store.js)
   let toggle = useSelector((state)=>state.toggleSlice.toggle);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
     dispatch(setToggle(!toggle));
   };
-
-  
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,21 +37,28 @@ function Navbar() {
   }, [toggle]);
 
 
-
   // Using Scrolls to Change Navbar Background Color
-    window.addEventListener('load', () => {
+    const [isNavColored, setIsNavColored] = useState(false);
+
+    function handleScroll() {
       const nav = document.querySelector('#nav');
-      document.addEventListener('scroll', () => {
-        const Scroll = document.documentElement.scrollTop;
-        if(Scroll > 0){
-          nav.style.backgroundColor = '#fe918d';
-          nav.style.transition = 'all 0.3s';
-        } else {
-          nav.style.removeProperty('background-color');
-          nav.style.removeProperty('padding');
-        }
-      });
+      const scroll = document.documentElement.scrollTop;
+      if (nav && scroll > 0 && !isNavColored) {
+        nav.style.backgroundColor = '#fe918d';
+        nav.style.transition = 'background-color 0.3s';
+        setIsNavColored(true);
+      } else if (nav && scroll === 0 && isNavColored) {
+        nav.style.removeProperty('background-color');
+        nav.style.removeProperty('transition');
+        setIsNavColored(false);
+      }
+    }
+    
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
     });
+
 
 
   return (
