@@ -63,7 +63,6 @@ p {
 
 
 /* Navbar */
-
 ul {
   list-style: none;
 }
@@ -71,10 +70,10 @@ ul {
 #nav {
   display: flex;
   justify-content:space-around;
-  background-color: pink;
   padding: 10px 20px;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .nav__left {
@@ -85,9 +84,10 @@ ul {
   display: flex;
 }
 
-.nav__ul li {
+.nav__li {
   margin: 0px 10px;
   cursor: pointer;
+  color: $color-white;
 }
 
 .nav__title {
@@ -97,6 +97,7 @@ ul {
 
 .nav__title a {
   margin: 0px 4px;
+  color: $color-white;
 }
 
 .nav__right {
@@ -113,6 +114,7 @@ ul {
 
 .nav__right span {
   margin: 0px 4px;
+  color: $color-white;
 }
 
 .nav__github:nth-child(3) {
@@ -125,7 +127,7 @@ ul {
 }
 
 
-/* Errorpage */
+/* Error page */
 #errorpage {
   text-align: center;
   position: relative;
@@ -147,6 +149,85 @@ ul {
 }
 
 
+/* Home */
+#home {
+  background-image: url(./Image/background_home.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 2000px;
+  padding: 40px;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.home__avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid $color-white;
+}
+
+.home__title,
+.home__description {
+  color: $color-white;
+}
+
+
+// Snow animation in the home section
+body {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow-x: hidden;
+}
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+.snow {
+  $total: 200;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+
+  @for $i from 1 through $total {
+    $random-x: random(1000000) * 0.0001vw;
+    $random-offset: random_range(-100000, 100000) * 0.0001vw;
+    $random-x-end: $random-x + $random-offset;
+    $random-x-end-yoyo: $random-x + ($random-offset / 2);
+    $random-yoyo-time: random_range(30000, 80000) / 100000;
+    $random-yoyo-y: $random-yoyo-time * 100vh;
+    $random-scale: random(10000) * 0.0001;
+    $fall-duration: random_range(10, 30) * 1s;
+    $fall-delay: random(30) * -1s;
+
+    &:nth-child(#{$i}) {
+      opacity: random(10000) * 0.0001;
+      transform: translate($random-x, -10px) scale($random-scale);
+      animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+    }
+
+    @keyframes fall-#{$i} {
+      #{percentage($random-yoyo-time)} {
+        transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+      }
+
+      to {
+        transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+      }
+    }
+  }
+}
+
+
+
+
+
+
 
 
 /* Media query */
@@ -157,13 +238,14 @@ ul {
   }
 
   #nav {
-    padding: 20px 20px 0px 20px;
+    padding: 30px 20px 0px 20px;
     flex-direction: column;
+    background-color: $color-pink;
   }
 
   .nav__right {
     position: absolute;
-    top: 18px;
+    top: 24px;
     right: 15px;
   }
 
@@ -172,7 +254,7 @@ ul {
     align-items: center;
   }
 
-  .nav__ul li {
+  .nav__li {
     margin: 5px 0px;
   }
 
@@ -191,6 +273,7 @@ ul {
   .nav__toggle {
     display: block;
   }
+
 
 
 

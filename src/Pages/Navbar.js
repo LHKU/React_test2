@@ -10,13 +10,14 @@ import { setToggle } from '../store.js';
 
 function Navbar() {
 
-  const toggle = useSelector((state)=>state.toggleSlice.toggle);
+  let toggle = useSelector((state)=>state.toggleSlice.toggle);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
     dispatch(setToggle(!toggle));
   };
 
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,10 +37,28 @@ function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, [toggle]);
 
+
+
+  // Using Scrolls to Change Navbar Background Color
+    window.addEventListener('load', () => {
+      const nav = document.querySelector('#nav');
+      document.addEventListener('scroll', () => {
+        const Scroll = document.documentElement.scrollTop;
+        if(Scroll > 0){
+          nav.style.backgroundColor = '#fe918d';
+          nav.style.transition = 'all 0.3s';
+        } else {
+          nav.style.removeProperty('background-color');
+          nav.style.removeProperty('padding');
+        }
+      });
+    });
+
+
   return (
     <div id='nav'>
       <div className='nav__title'>
-        <FontAwesomeIcon icon={faStar} size='1x' />
+        <FontAwesomeIcon icon={faStar} size='1x' style={{ color : 'white' }} />
         <a href='#top'>Portfolio</a>
       </div>
       <ul className='nav__ul'>
@@ -52,16 +71,16 @@ function Navbar() {
       </ul>
       <div className='nav__right'>
         <button className='nav__toggle' onClick={handleToggle}>
-          <FontAwesomeIcon icon={faBars} size='2x'/>
+          <FontAwesomeIcon icon={faBars} size='2x' style={{ color : 'white' }} />
         </button>
         <div>
-          <FontAwesomeIcon icon={faLanguage} size='2x'/>
+          <FontAwesomeIcon icon={faLanguage} size='2x' style={{ color : 'white' }} />
           <span>Languages</span>
         </div>
         <a href='#top'>
           <span>GitHub</span>
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='1x' className='nav__github'/>
-          <FontAwesomeIcon icon={faGithub} size='2x' className='nav__github'/>
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='1x' className='nav__github' style={{ color : 'white' }} />
+          <FontAwesomeIcon icon={faGithub} size='2x' className='nav__github' style={{ color : 'white' }} />
         </a>
       </div>
     </div>
