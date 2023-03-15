@@ -60,6 +60,7 @@ function Navbar() {
     });
 
 
+  const navItems = ['Home', 'About me', 'My goals', 'Review', 'Contact'];
 
   return (
     <div id='nav'>
@@ -67,14 +68,13 @@ function Navbar() {
         <FontAwesomeIcon icon={faStar} size='1x' style={{ color : 'white' }} />
         <a href='#home'>Portfolio</a>
       </div>
+
       <ul className='nav__ul'>
-        <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>Home</li>
-        <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>About me</li>
-        <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>Skills</li>
-        <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>My goals</li>
-        <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>Review</li>
-        <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>Contact</li>
+        {navItems.map((item, index) => 
+          <li key={index} style={{display:toggle ? 'block' : 'none'}} className='nav__li'>{item}</li>
+        )}
       </ul>
+
       <div className='nav__right'>
         <button className='nav__toggle' onClick={handleToggle}>
           <FontAwesomeIcon icon={faBars} size='2x' style={{ color : 'white' }} />

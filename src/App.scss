@@ -93,6 +93,11 @@ p {
   margin: 0px 10px;
   cursor: pointer;
   color: $color-white;
+  padding: 10px;
+}
+
+.nav__li:hover {
+  background-color: $color-dark-pink;
 }
 
 .nav__title {
@@ -313,6 +318,17 @@ body {
 }
 
 
+/* Skills */
+#skills {
+  background-image: linear-gradient(to right bottom, rgba(192, 192, 192, 0), rgba(255, 255, 255, 0.8) 90%, rgba(255, 255, 255, 0.2));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1100px;
+  width: 100%;
+}
+
+
 
 
 
@@ -342,7 +358,6 @@ body {
   }
 
   .nav__li {
-    margin: 5px 0px;
     font-size: $font-regular;
   }
 

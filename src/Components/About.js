@@ -6,53 +6,51 @@ import { faGlobe, faGraduationCap, faLightbulb } from '@fortawesome/free-solid-s
 
 function About() {
 
+  const languages = [
+    { icon: faJs, name: 'JavaScript' },
+    { icon: faNode, name: 'Node.js' },
+    { icon: faReact, name: 'React' }
+  ];
+
+  const skills = [
+    { icon: faGlobe, title: 'Network Engineer Experience' },
+    { icon: faGraduationCap, title: 'Constant self-development' },
+    { icon: faLightbulb, title: 'Clear sense of purpose' }
+  ];
+
   return (
     <div id='about'>
       <div className='about__margin'>
         <h1>About me</h1>
+
         <div className='about__boxsort-lang'>
-          <div>
-            <FontAwesomeIcon icon={faJs} className='about__icon-lang'/>
-            <h2>JavaScript</h2>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faNode} className='about__icon-lang'/>
-            <h2>Node.js</h2>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faReact} className='about__icon-lang'/>
-            <h2>React</h2>
-          </div>
+          {languages.map((language, index) => (
+            <div key={index}>
+              <FontAwesomeIcon icon={language.icon} className='about__icon-lang' />
+              <h2>{language.name}</h2>
+            </div>
+          ))}
         </div>
+
         <div className='about__boxsort-str'>
-          <div className='about__whitebox'>
-            <FontAwesomeIcon icon={faGlobe} className='about__icon-str' />
-            <h2>Network Engineer Experience</h2>
-          </div>
-          <div className='about__whitebox'>
-            <FontAwesomeIcon icon={faGraduationCap} className='about__icon-str' />
-            <h2>Constant self-development</h2>
-          </div>
-          <div className='about__whitebox'>
-            <FontAwesomeIcon icon={faLightbulb} className='about__icon-str' />
-            <h2>Clear sense of purpose</h2>
-          </div>
+          {skills.map((skill, index) => (
+            <div key={index} className='about__whitebox'>
+              <FontAwesomeIcon icon={skill.icon} className='about__icon-str' />
+              <h2>{skill.title}</h2>
+            </div>
+          ))}
         </div>
-        {/* responsive */}
+
+        {/* responsive - about__boxsort-str */}
         <div className='about__responsive'>
-          <div>
-            <FontAwesomeIcon icon={faGlobe} className='about__icon-str' />
-            <h2>Network Engineer Experience</h2>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faGraduationCap} className='about__icon-str' />
-            <h2>Constant self-development</h2>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faLightbulb} className='about__icon-str' />
-            <h2>Clear sense of purpose</h2>
-          </div>
+          {skills.map((skill, index) => (
+            <div key={index}>
+              <FontAwesomeIcon icon={skill.icon} className='about__icon-str' />
+              <h2>{skill.title}</h2>
+            </div>
+          ))}
         </div>
+        
       </div>
     </div>
   );
