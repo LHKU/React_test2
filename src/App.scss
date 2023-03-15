@@ -1,72 +1,77 @@
 /* Global */
 
-/* Color */
+// Color
 $color-white: #ffffff;
 $color-light-white: #eeeeee;
 $color-dark-white: #bdbdbd;
 $color-pink: #fe918d;
 $color-dark-pink: #ff6863;
 $color-black: #4d4d4d;
+$color-dark-black: #000000;
 $color-dark-grey: #4d4d4d;
 $color-grey: #616161;
 $color-light-grey: #7c7979;
 $color-blue: #73aace;
 $color-yellow: #fff7d1;
 $color-orange: #feb546;
+$color-light-red: #F44349;
 
-/* Font size */
+// Font size
 $font-large: 48px;
 $font-medium: 28px;
 $font-regular: 18px;
 $font-small: 16px;
 $font-micro: 14px;
 
-/* Font weight */
+// Font weight
 $weight-bold: 700;
 $weight-semi-bold: 600;
 $weight-regular: 400;
 
 
+
 /* Universal tags */
 // -> index.css
+ul {
+  list-style: none;
+}
+
 
 
 /* Typography */
 h1 {
   font-size: $font-large;
   font-weight: $weight-bold;
-  color: $color-black;
+  color: $color-dark-black;
   margin: 16px 0;
 }
 
 h2 {
   font-size: $font-medium;
   font-weight: $weight-semi-bold;
-  color: $color-black;
+  color: $color-dark-black;
   margin: 8px 0;
 }
 
 h3 {
   font-size: $font-regular;
   font-weight: $font-regular;
-  color: $color-black;
+  color: $color-dark-black;
   margin: 8px 0;
 }
 
 p {
   font-size: $font-regular;
   font-weight: $font-regular;
-  color: $color-black;
+  color: $color-dark-black;
   margin: 4px 0;
 }
 
 
 
-/* Navbar */
-ul {
-  list-style: none;
-}
 
+
+/* Navbar */
 #nav {
   display: flex;
   justify-content:space-around;
@@ -145,7 +150,7 @@ ul {
   border-radius: 4px;
   padding: 15px;
   margin-top: 15px;
-  color: white;
+  color: $color-white;
   background-color: green;
 }
 
@@ -156,10 +161,11 @@ ul {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 2000px;
+  height: 1100px;
   padding: 40px;
-  padding-top: 120px;
+  padding-top: 220px;
   text-align: center;
+  width: 100%;
 }
 
 .home__avatar {
@@ -225,7 +231,86 @@ body {
 }
 
 
+/* About */
+#about {
+  background-image: url(./Image/background_about.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1100px;
+  padding: 40px;
+  padding-top: 120px;
+  text-align: center;
+  width: 100%;
+}
 
+.about__boxsort-lang {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0px;
+}
+
+.about__icon-lang {
+  border: 3px solid $color-dark-black;
+  padding: 50px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.about__margin {
+  margin: 0px 80px;
+}
+
+#about h1 {
+  margin-bottom: 70px;
+}
+
+#about h2 {
+  margin-top: 20px;
+}
+
+.about__boxsort-str {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0px;
+}
+
+.about__whitebox {
+  background-color: $color-white;
+  padding: 50px;
+  border-radius: 10px;
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__icon-str {
+  width: 40px;
+  height: 40px;
+  color: $color-light-red;
+}
+
+.about__responsive{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  display: none;
+}
+
+.about__responsive div {
+  width: 400px;
+  height: 130px;
+  margin: 5px;
+}
+
+.about__responsive h2 {
+  margin-top: 15px !important;
+}
 
 
 
@@ -233,20 +318,21 @@ body {
 
 /* Media query */
 @media screen and (max-width: 1024px) {
-  :root {
-    /* 반응형 글로벌코드 작성하기 (768px) - root 필요없이 SCSS문법으로*/
-    font-size: 15px;
-  }
 
+  //nav
   #nav {
     padding: 30px 20px 0px 20px;
     flex-direction: column;
     background-color: $color-pink;
   }
 
+  .nav__title a {
+    font-size: $font-regular;
+  }
+
   .nav__right {
     position: absolute;
-    top: 24px;
+    top: 28px;
     right: 15px;
   }
 
@@ -257,6 +343,7 @@ body {
 
   .nav__li {
     margin: 5px 0px;
+    font-size: $font-regular;
   }
 
   .nav__right span {
@@ -275,16 +362,80 @@ body {
     display: block;
   }
 
+  //home
+  #home {
+    height: 1000px;
+  }
 
+  //about
+  #about {
+    height: 1200px;
+  }
 
+  .about__responsive {
+    display: flex;
+  }
+
+  .about__boxsort-str {
+    display: none;
+  }
+
+  .about__icon-lang {
+    width: 100px;
+    height: 100px;
+  }
 
 }
 
 
+
 @media screen and (max-width: 768px) {
-  :root {
-    /* 반응형 글로벌코드 작성하기 (768px) - root 필요없이 SCSS문법으로*/
-    font-size: 15px;
+
+  /* global (768px or less) */
+  // font-size
+  $font-large: 38px;
+  $font-medium: 22px;
+  $font-regular: 14px;
+  $font-small: 13px;
+  $font-micro: 11px;
+  // Typograph
+  h1 {
+    font-size: $font-large;
   }
+  h2 {
+    font-size: $font-medium;
+  }
+  h3 {
+    font-size: $font-regular;
+  }
+  p {
+    font-size: $font-regular;
+  }
+
+
+  //about
+  #about {
+    height: 1600px;
+  }
+
+  .about__boxsort-lang {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about__boxsort-lang h2 {
+    margin-top: 0px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .about__responsive div {
+    margin: 0px;
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+
 
 }

@@ -1,8 +1,9 @@
 import './App.css';
 
-import Navbar from './Pages/Navbar.js';
-import Errorpage from './Pages/Errorpage.js';
-import Home from './Pages/Home.js';
+import Navbar from './Components/Navbar.js';
+import Errorpage from './Components/Errorpage.js';
+import Home from './Components/Home.js';
+import About from './Components/About.js';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
@@ -17,12 +18,13 @@ function App() {
 
 
   return (
-    <div>
+    <div id='app'>
       <Routes>
         <Route path='/' element={
           <>
             <Navbar></Navbar>
             <Home></Home>
+            <About></About>
           </>
         }></Route>
         <Route path='*' element={<Errorpage></Errorpage>}></Route>

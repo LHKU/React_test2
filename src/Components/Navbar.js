@@ -65,7 +65,7 @@ function Navbar() {
     <div id='nav'>
       <div className='nav__title'>
         <FontAwesomeIcon icon={faStar} size='1x' style={{ color : 'white' }} />
-        <a href='#top'>Portfolio</a>
+        <a href='#home'>Portfolio</a>
       </div>
       <ul className='nav__ul'>
         <li style={{display:toggle ? 'block' : 'none'}} className='nav__li'>Home</li>

@@ -21,11 +21,6 @@ function Home() {
         IT Engineer currently residing in Tokyo, Japan.
         </h2>
       </div>
-
-
-
-
-
     </div>
   );
 }
