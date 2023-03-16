@@ -38,12 +38,27 @@ const dataSlice = createSlice({
 export const { setLanguages, setSkills } = dataSlice.actions;
 
 
+// Goals section
+const goalsSlice = createSlice({
+  name : 'goals',
+  initialState : { activeBtn: 'front' },
+  reducers: {
+    setActiveBtn: (state, action) => {
+      state.activeBtn = action.payload;
+    },
+  },
+});
+export const { setActiveBtn } = goalsSlice.actions;
+
+
+
 
 // export
 export default configureStore({
   reducer: {
     toggleSlice : toggleSlice.reducer,
-    dataSlice : dataSlice.reducer
+    dataSlice : dataSlice.reducer,
+    goalsSlice : goalsSlice.reducer
   },
   preloadedState: getInitialState(),
 });

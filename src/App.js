@@ -47,7 +47,7 @@ function App() {
         // About 섹션 모두 map으로 바꾸기 (완)
         // About 섹션은 데이터 node.js 서버 만들어서 get으로 받아오기 axios 라이브러리 쓰기 (완)
         -> node.js 깃에 따로 레파지토리 만들어서 커밋했음
-        -> https://nodejs-test-380807.an.r.appspot.com/ (node.js로 구축한 서버 url / CORS 모두허용)
+        -> https://nodejs-test-380807.an.r.appspot.com/ (node.js로 구축한 서버 url / CORS 모두허용 / 구글클라우드플랫폼 호스팅)
         // Goals Section 마크업, 디자인
         */}
 
