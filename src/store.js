@@ -1,7 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
-// Navbar
-
+// Navbar section
 const toggleSlice = createSlice({
   name : 'toggle',
   initialState : { toggle : true },
@@ -11,11 +10,9 @@ const toggleSlice = createSlice({
     }
   }
 });
-
 export const { setToggle } = toggleSlice.actions;
 
-
-// Hide li tag as initial value on mobile (Navbar)
+// Hide li tag as initial value on mobile (Navbar section)
 const getInitialState = () => {
   return {
     toggleSlice: {
@@ -25,9 +22,28 @@ const getInitialState = () => {
 };
 
 
+// About section
+const dataSlice = createSlice({
+  name : 'data',
+  initialState : { languages: [], skills: [] },
+  reducers: {
+    setLanguages: (state, action) => {
+      state.languages = action.payload;
+    },
+    setSkills: (state, action) => {
+      state.skills = action.payload;
+    }
+  }
+});
+export const { setLanguages, setSkills } = dataSlice.actions;
+
+
+
+// export
 export default configureStore({
   reducer: {
-    toggleSlice: toggleSlice.reducer,
+    toggleSlice : toggleSlice.reducer,
+    dataSlice : dataSlice.reducer
   },
   preloadedState: getInitialState(),
 });

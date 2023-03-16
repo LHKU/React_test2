@@ -45,8 +45,9 @@ function App() {
         // 404페이지로 이동 후 다시 원래 페이지로 돌아오면 navbar의 애니메이션이 동작안함 (useEffcet로 변경 완)
         // About Section 마크업, 디자인 (완)
         // About 섹션 모두 map으로 바꾸기 (완)
-        // About 섹션은 데이터 node.js 서버 만들어서 get으로 받아오기 axios 라이브러리 쓰기, 
-        클라용과 서버용 도메인 각각 구매해뒀음 
+        // About 섹션은 데이터 node.js 서버 만들어서 get으로 받아오기 axios 라이브러리 쓰기 (완)
+        -> node.js 깃에 따로 레파지토리 만들어서 커밋했음
+        -> https://nodejs-test-380807.an.r.appspot.com/ (node.js로 구축한 서버 url / CORS 모두허용)
         // Goals Section 마크업, 디자인
         */}
 
