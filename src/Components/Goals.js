@@ -12,6 +12,16 @@ import { setActiveBtn } from '../store.js';
 
 function Goals() {
 
+  const images = {
+    JS: JS,
+    TS: TS,
+    RT: RT,
+    Nextjs: Nextjs,
+    Nodejs: Nodejs,
+    Firebase: Firebase,
+    RN: RN
+  };
+
   let activeBtn = useSelector((state)=>state.goalsSlice.activeBtn);
   const dispatch = useDispatch();
 
@@ -20,17 +30,17 @@ function Goals() {
   };
 
   const front = [
-    { img: JS, alt: 'javascript', name: 'JavaScript' },
-    { img: TS, alt: 'typescript', name: 'TypeScript' },
-    { img: RT, alt: 'react', name: 'React' },
-    { img: Nextjs, alt: 'nextjs', name: 'Next.js' },
+    { img: images.JS, alt: 'javascript', name: 'JavaScript' },
+    { img: images.TS, alt: 'typescript', name: 'TypeScript' },
+    { img: images.RT, alt: 'react', name: 'React' },
+    { img: images.Nextjs, alt: 'nextjs', name: 'Next.js' },
   ];
   const back = [
-    { img: Nodejs, alt: 'nodejs', name: 'Node.js' },
-    { img: Firebase, alt: 'firebase', name: 'Firebase' },
+    { img: images.Nodejs, alt: 'nodejs', name: 'Node.js' },
+    { img: images.Firebase, alt: 'firebase', name: 'Firebase' },
   ];
   const mobile = [
-    { img: RN, alt: 'reactnative', name: 'ReactNative' }
+    { img: images.RN, alt: 'reactnative', name: 'ReactNative' }
   ];
 
 

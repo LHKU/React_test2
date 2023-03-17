@@ -40,7 +40,7 @@ function About() {
       .catch(error => {
         console.log(error);
       });
-  });
+  }, [dispatch]);
 
   /* Annotation is data contained in node.js server.
   const languages = [

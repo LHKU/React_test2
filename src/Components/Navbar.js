@@ -2,13 +2,15 @@ import '../App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faLanguage, faArrowUpRightFromSquare, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToggle } from '../store.js';
 
 
 
 function Navbar() {
+
+  const navRef = useRef(null);
 
   // Hide and show the li tag of toggle (Initial value is set in store.js)
   let toggle = useSelector((state)=>state.toggleSlice.toggle);
@@ -41,7 +43,8 @@ function Navbar() {
     const [isNavColored, setIsNavColored] = useState(false);
 
     function handleScroll() {
-      const nav = document.querySelector('#nav');
+      // const nav = document.querySelector('#nav'); --> Use by changing to useRef
+      const nav = navRef.current;
       const scroll = document.documentElement.scrollTop;
       if (nav && scroll > 0 && !isNavColored) {
         nav.style.backgroundColor = '#fe918d';
@@ -63,7 +66,7 @@ function Navbar() {
   const navItems = ['Home', 'About me', 'My goals', 'Review', 'Contact'];
 
   return (
-    <div id='nav'>
+    <div id='nav' ref={navRef}>
       <div className='nav__title'>
         <FontAwesomeIcon icon={faStar} size='1x' style={{ color : 'white' }} />
         <a href='#home'>Portfolio</a>

@@ -16,7 +16,10 @@ function Home() {
       {snowflakes} 
       <div className='home__container'>
       <img src={img_sakura} alt='sakura' className='home__avatar'></img>
-        <h1 className='home__title'>Hello, <br />Dreams Come to Life</h1>
+        <h1 className='home__title'>
+          Hello, <br />
+          Dreams Come to Life
+        </h1>
         <h2 className='home__description'>
         IT Engineer currently residing in Tokyo, Japan.
         </h2>

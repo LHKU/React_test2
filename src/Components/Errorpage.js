@@ -2,12 +2,14 @@ import '../App.css';
 import { Link } from 'react-router-dom'
 
 
-function Errorpage() {
+const errorMessage = '404';
+const pageNotFoundMessage = 'Page not found';
 
+function Errorpage() {
   return (
     <div id='errorpage'>
-      <p>404</p>
-      <p>Page not found</p>
+      <p>{errorMessage}</p>
+      <p>{pageNotFoundMessage}</p>
       <Link to='/'><button>Go to Home</button></Link>
     </div>
   );

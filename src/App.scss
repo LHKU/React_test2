@@ -55,14 +55,14 @@ h2 {
 
 h3 {
   font-size: $font-regular;
-  font-weight: $font-regular;
+  font-weight: $weight-semi-bold;
   color: $color-dark-black;
   margin: 8px 0;
 }
 
 p {
   font-size: $font-regular;
-  font-weight: $font-regular;
+  font-weight: $weight-regular;
   color: $color-dark-black;
   margin: 4px 0;
 }
@@ -127,7 +127,7 @@ p {
   color: $color-white;
 }
 
-.nav__github:nth-child(3) {
+.nav__github:nth-of-type(2) {
   display: none;
 }
 
@@ -212,7 +212,7 @@ body {
     $random-x-end: $random-x + $random-offset;
     $random-x-end-yoyo: $random-x + ($random-offset / 2);
     $random-yoyo-time: random_range(30000, 80000) / 100000;
-    $random-yoyo-y: $random-yoyo-time * 100vh;
+    $random-yoyo-y: ($random-yoyo-time * 100vh) + 10px;
     $random-scale: random(10000) * 0.0001;
     $fall-duration: random_range(10, 30) * 1s;
     $fall-delay: random(30) * -1s;
@@ -301,7 +301,6 @@ body {
 }
 
 .about__responsive{
-  display: flex;
   flex-direction: column;
   align-items:center;
   display: none;

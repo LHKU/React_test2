@@ -48,7 +48,13 @@ function App() {
         // About 섹션은 데이터 node.js 서버 만들어서 get으로 받아오기 axios 라이브러리 쓰기 (완)
         -> node.js 깃에 따로 레파지토리 만들어서 커밋했음
         -> https://nodejs-test-380807.an.r.appspot.com/ (node.js로 구축한 서버 url / CORS 모두허용 / 구글클라우드플랫폼 호스팅)
-        // Goals Section 마크업, 디자인
+        // Goals Section 마크업, 디자인 (완)
+        // Review Section 마크업, 디자인
+        // 최하단 Thank you Section 마크업, 디자인
+        // Navbar 각 페이지내 이동 a태그로 구현하기, 깃허브링크도 걸어두기 -> 반응형도 살피기
+        // react-intl 라이브러리로 다국어 설정하고 반응형도 살피기 -> 노션에도 정리하기 
+        // 최종 리팩토링 (반응형 확인, 변수명 확인, 크롬 개발자도구에서 컴포넌트 성능 확인, 삭선그어진 불필요한 CSS는 없는지, 쓸데없는 주석 모두 삭제)
+        // npm으로 빌드하고 깃에 최종커밋하기 깃허브 페이지에 개인도메인으로 호스팅하고 ssl설정하기 
         */}
 
     </div>
