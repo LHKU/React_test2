@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
-// Navbar section
+// Navbar section - 1
 const toggleSlice = createSlice({
   name : 'toggle',
   initialState : { toggle : true },
@@ -20,6 +20,18 @@ const getInitialState = () => {
     },
   };
 };
+
+// Navbar section - 2
+const colorSlice = createSlice({
+  name : 'color',
+  initialState : { isNavColored : false },
+  reducers : {
+    setIsNavColored: (state, action) => {
+      state.isNavColored = action.payload;
+    }
+  }
+});
+export const { setIsNavColored } = colorSlice.actions;
 
 
 // About section
@@ -58,7 +70,8 @@ export default configureStore({
   reducer: {
     toggleSlice : toggleSlice.reducer,
     dataSlice : dataSlice.reducer,
-    goalsSlice : goalsSlice.reducer
+    goalsSlice : goalsSlice.reducer,
+    colorSlice : colorSlice.reducer
   },
   preloadedState: getInitialState(),
 });

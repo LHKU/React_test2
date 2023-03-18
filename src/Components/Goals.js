@@ -22,7 +22,7 @@ function Goals() {
     RN: RN
   };
 
-  let activeBtn = useSelector((state)=>state.goalsSlice.activeBtn);
+  const activeBtn = useSelector((state)=>state.goalsSlice.activeBtn);
   const dispatch = useDispatch();
 
   const handleBtnClick = (btn) => {

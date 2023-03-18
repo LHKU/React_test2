@@ -2,9 +2,9 @@ import '../App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faLanguage, faArrowUpRightFromSquare, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setToggle } from '../store.js';
+import { setToggle, setIsNavColored } from '../store.js';
 
 
 
@@ -13,7 +13,7 @@ function Navbar() {
   const navRef = useRef(null);
 
   // Hide and show the li tag of toggle (Initial value is set in store.js)
-  let toggle = useSelector((state)=>state.toggleSlice.toggle);
+  const toggle = useSelector((state)=>state.toggleSlice.toggle);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -40,7 +40,7 @@ function Navbar() {
 
 
   // Using Scrolls to Change Navbar Background Color
-    const [isNavColored, setIsNavColored] = useState(false);
+    const isNavColored = useSelector((state)=>state.colorSlice.isNavColored);
 
     function handleScroll() {
       // const nav = document.querySelector('#nav'); --> Use by changing to useRef
@@ -49,11 +49,11 @@ function Navbar() {
       if (nav && scroll > 0 && !isNavColored) {
         nav.style.backgroundColor = '#fe918d';
         nav.style.transition = 'background-color 0.3s';
-        setIsNavColored(true);
+        dispatch(setIsNavColored(true));
       } else if (nav && scroll === 0 && isNavColored) {
         nav.style.removeProperty('background-color');
         nav.style.removeProperty('transition');
-        setIsNavColored(false);
+        dispatch(setIsNavColored(false));
       }
     }
     
