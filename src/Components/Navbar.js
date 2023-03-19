@@ -5,12 +5,23 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToggle, setIsNavColored } from '../store.js';
+import { useLocation } from 'react-router-dom';
 
 
 
 function Navbar() {
-
+  
   const navRef = useRef(null);
+
+  // Paths that do not correspond to "validRoutes" by storing the current location set Navbar's transparency to zero.
+  const location = useLocation(); 
+  const validRoutes = ['/']; // Paths that require navbar are added to validRoutes
+  const isNotFoundPage = !validRoutes.includes(location.pathname);
+
+  const navbarStyle = {
+    opacity: isNotFoundPage ? 0 : 1,
+  };
+
 
   // Hide and show the li tag of toggle (Initial value is set in store.js)
   const toggle = useSelector((state)=>state.toggleSlice.toggle);
@@ -66,7 +77,7 @@ function Navbar() {
   const navItems = ['Home', 'About me', 'My goals', 'Review', 'Contact'];
 
   return (
-    <div id='nav' ref={navRef}>
+    <div id='nav' ref={navRef} style={navbarStyle}>
       <div className='nav__title'>
         <FontAwesomeIcon icon={faStar} size='1x' style={{ color : 'white' }} />
         <a href='#home'>Portfolio</a>

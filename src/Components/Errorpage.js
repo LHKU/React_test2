@@ -1,16 +1,23 @@
 import '../App.css';
-import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 
 const errorMessage = '404';
 const pageNotFoundMessage = 'Page not found';
 
 function Errorpage() {
+
+  const navigate = useNavigate();
+
+  function handleButtonClick() {
+    navigate('/', { replace: false });
+  }
+  
+
   return (
-    <div id='errorpage'>
+    <div key="errorPage" id='errorPage'>
       <p>{errorMessage}</p>
       <p>{pageNotFoundMessage}</p>
-      <Link to='/'><button>Go to Home</button></Link>
+      <button onClick={handleButtonClick}>Go to Home</button>
     </div>
   );
 }

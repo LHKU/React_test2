@@ -5,6 +5,7 @@ import Errorpage from './Components/Errorpage.js';
 import Home from './Components/Home.js';
 import About from './Components/About.js';
 import Goals from './Components/Goals.js';
+import Review from './Components/Review.js';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
@@ -21,16 +22,24 @@ function App() {
   return (
     <div id='app'>
       <Routes>
-        <Route path='/' element={
+        <Route exact path='/' element={
           <>
             <Navbar></Navbar>
             <Home></Home>
             <About></About>
             <Goals></Goals>
+            <Review></Review>
           </>
         }></Route>
-        <Route path='*' element={<Errorpage></Errorpage>}></Route>
+        
+        <Route exact path='*' element={
+          <>
+            <Navbar></Navbar>
+            <Errorpage></Errorpage>
+          </>
+        }></Route>
       </Routes>
+
 
 
       {/* TODO: 
@@ -58,7 +67,6 @@ function App() {
         // README.md 파일 기존내용 날리고 코드내용 설명 작성하기 
         // npm으로 빌드하고 깃에 최종커밋하기, 깃허브 페이지에 개인도메인으로 호스팅하고 ssl설정하기 
         */}
-
     </div>
   );
 }
