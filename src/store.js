@@ -63,6 +63,25 @@ const goalsSlice = createSlice({
 export const { setActiveBtn } = goalsSlice.actions;
 
 
+// Review section
+const words = ["💗HTML💗", "💞CSS💞", "💕React💕"];
+export const getWords = () => words;
+
+const reviewSlice = createSlice({
+  name : 'review',
+  initialState : { currentSlide: 0 },
+  reducers: {
+    setCurrentSlide: (state, action) => {
+      state.activeBtn = action.payload;
+    },
+    incrementCurrentSlide: (state) => {
+      state.currentSlide = (state.currentSlide + 1) % words.length; // Repeating slices indefinitely with %
+    },
+  },
+});
+export const { setCurrentSlide, incrementCurrentSlide } = reviewSlice.actions;
+
+
 
 
 // export
@@ -71,7 +90,8 @@ export default configureStore({
     toggleSlice : toggleSlice.reducer,
     dataSlice : dataSlice.reducer,
     goalsSlice : goalsSlice.reducer,
-    colorSlice : colorSlice.reducer
+    colorSlice : colorSlice.reducer,
+    reviewSlice : reviewSlice.reducer
   },
   preloadedState: getInitialState(),
 });

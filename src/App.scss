@@ -69,8 +69,6 @@ p {
 
 
 
-
-
 /* Navbar */
 #nav {
   display: flex;
@@ -98,6 +96,10 @@ p {
 
 .nav__li:hover {
   background-color: $color-dark-pink;
+}
+
+.nav__li a {
+  color: $color-white;
 }
 
 .nav__title {
@@ -446,6 +448,34 @@ body {
 }
 
 
+/* Contact */
+#contact {
+  background-color: $color-dark-black;
+  height: 100px;
+  padding: 40px;
+  width: 100%;
+  color: $color-white;
+  font-size: $font-regular;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+#contact div {
+  color: $color-white;
+}
+
+.contact__right {
+  display: flex;
+}
+
+.contact__right a {
+  margin: 0 15px;
+  text-align: center;
+}
+
+
 
 /* Media query */
 @media screen and (max-width: 1024px) {
@@ -629,6 +659,14 @@ body {
 
   .review__slice {
     font-size: calc($font-large + 12px);
+  }
+
+  //contact
+  #contact {
+  background-color: $color-dark-black;
+  height: 70px;
+  padding: 20px;
+  font-size: $font-regular;
   }
 
 }

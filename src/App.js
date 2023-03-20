@@ -6,6 +6,7 @@ import Home from './Components/Home.js';
 import About from './Components/About.js';
 import Goals from './Components/Goals.js';
 import Review from './Components/Review.js';
+import Contact from './Components/Contact.js';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
@@ -22,17 +23,18 @@ function App() {
   return (
     <div id='app'>
       <Routes>
-        <Route exact path='/' element={
+        <Route path='/' element={
           <>
             <Navbar></Navbar>
             <Home></Home>
             <About></About>
             <Goals></Goals>
             <Review></Review>
+            <Contact></Contact>
           </>
         }></Route>
         
-        <Route exact path='*' element={
+        <Route path='*' element={
           <>
             <Navbar></Navbar>
             <Errorpage></Errorpage>
@@ -58,9 +60,9 @@ function App() {
         -> node.js 깃에 따로 레파지토리 만들어서 커밋했음
         -> https://nodejs-test-380807.an.r.appspot.com/ (node.js로 구축한 서버 url / CORS 모두허용 / 구글클라우드플랫폼 호스팅)
         // Goals Section 마크업, 디자인 (완)
-        // Review Section 마크업, 디자인
-        // 최하단 Thank you Section 마크업, 디자인
-        // Navbar 각 페이지내 이동 a태그로 구현하기, 깃허브링크도 걸어두기 -> 반응형도 살피기
+        // Review Section 마크업, 디자인 (완)
+        // 최하단 Thank you Section 마크업, 디자인 (완)
+        // Navbar 각 페이지내 이동 a태그로 구현하기, 깃허브링크도 걸어두기 -> 반응형도 살피기 (완)
         // react-intl 라이브러리로 다국어 설정하고 반응형도 살피기 -> 노션에도 정리하기 
         // 최종 리팩토링 (반응형 확인, 변수명 확인, 크롬 개발자도구에서 컴포넌트 성능 확인, 삭선그어진 불필요한 CSS는 없는지,
         참고되는 주석은 제외하고 쓸데없는 주석 모두 삭제)

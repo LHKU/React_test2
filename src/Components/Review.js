@@ -1,10 +1,13 @@
 import '../App.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { incrementCurrentSlide } from '../store.js';
 import img_sakura from '../Image/sakura_home.jpg';
+import { getWords } from '../store';
 
-const words = ["💗HTML💗", "💞CSS💞", "💕React💕"];
-const SLIDE_DURATION = 2500; 
+// const words = ["💗HTML💗", "💞CSS💞", "💕React💕"]; --> store.js
+const SLIDE_DURATION = 2000; 
 
 
 function Review() {
@@ -16,15 +19,18 @@ function Review() {
   }
 
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const currentSlide = useSelector((state)=>state.reviewSlice.currentSlide);
+  const dispatch = useDispatch();
+  const words = getWords();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentSlide((currentSlide + 1) % words.length); // Repeating slices indefinitely with %
+      dispatch(incrementCurrentSlide()); 
     }, SLIDE_DURATION);
 
     return () => clearInterval(intervalId);
-  }, [currentSlide]);
+  }, [dispatch]);
+
 
 
 
@@ -47,7 +53,7 @@ function Review() {
           </div>
           <div>
             <h2>Tools</h2>
-            <p>node.js</p>
+            <p>Node.js</p>
             <p>Google Cloud Platform</p>
             <p>GitHub</p>
           </div>

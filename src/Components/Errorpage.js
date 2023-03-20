@@ -9,7 +9,7 @@ function Errorpage() {
   const navigate = useNavigate();
 
   function handleButtonClick() {
-    navigate('/', { replace: false });
+    navigate('/', { replace: false }); //If {replace: true} is changed, browser's Back button will no longer function.
   }
   
 
