@@ -7,9 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setToggle, setIsNavColored } from '../store.js';
 import { useLocation } from 'react-router-dom';
 
-
+import { useTranslation } from 'react-i18next';
 
 function Navbar() {
+
+  // react-i18next 
+  const { t } = useTranslation();
   
   const navRef = useRef(null);
 
@@ -74,7 +77,7 @@ function Navbar() {
 
 
   const navItems = [
-    { name: 'Home', id: 'home' },
+    { name: t('Home'), id: 'home' },
     { name: 'About me', id: 'about' },
     { name: 'My goals', id: 'goals' },
     { name: 'Review', id: 'review' },

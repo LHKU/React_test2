@@ -48,7 +48,7 @@ function Review() {
             <p>axios</p>
             <p>react-router-dom</p>
             <p>useRef</p>
-            <p>react-intl</p>
+            <p>i18next</p>
             <p>SCSS</p> 
           </div>
           <div>
