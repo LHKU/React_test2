@@ -67,6 +67,7 @@ function About() {
         <div className='about__boxsort-lang'>
           {languages.map((language, index) => (
             <div key={index}>
+              {/* icon={language.icon} (x) -> icon={languageIcons[language.icon]} (o)*/}
               <FontAwesomeIcon icon={languageIcons[language.icon]} className='about__icon-lang' />
               <h2>{language.name}</h2>
             </div>
