@@ -5,15 +5,23 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToggle, setIsNavColored } from '../store.js';
-import { useLocation } from 'react-router-dom';
-
+import { useLocation, Link ,useNavigate } from 'react-router-dom';
+import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 function Navbar() {
 
   // react-i18next 
   const { t } = useTranslation();
+  const onChangeLang = () => {
+    if (i18n.language === 'ja') {
+      i18n.changeLanguage('en');
+    } else {
+      i18n.changeLanguage('ja');
+    }
+  };
   
+
   const navRef = useRef(null);
 
   // Paths that do not correspond to "validRoutes" by storing the current location set Navbar's transparency to zero.
@@ -78,21 +86,25 @@ function Navbar() {
 
   const navItems = [
     { name: t('Home'), id: 'home' },
-    { name: 'About me', id: 'about' },
-    { name: 'My goals', id: 'goals' },
-    { name: 'Review', id: 'review' },
-    { name: 'Contact', id: 'contact' }
+    { name: t('About me'), id: 'about' },
+    { name: t('My goals'), id: 'goals' },
+    { name: t('Review'), id: 'review' },
+    { name: t('Contact'), id: 'contact' }
   ];
 
+  const navigate = useNavigate();
+
   const handleScrollSmoothly = (event) => {
-    event.preventDefault();
-    const targetId = event.currentTarget.getAttribute("href").slice(1);
+    event.preventDefault(); //Blocks the default behavior of the event. Here, it blocks the browser's default scroll function.
+    const targetId = event.currentTarget.hash.slice(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop,
         behavior: "smooth"
       });
+      navigate(`#${targetId}`);
+      handleClickRemoveLi();
     }
   };
 
@@ -111,20 +123,21 @@ function Navbar() {
       });
     }
   };
+  
 
   return (
     <div id='nav' ref={navRef} style={navbarStyle}>
       <div className='nav__title'>
         <FontAwesomeIcon icon={faStar} size='1x' style={{ color : 'white' }} />
-        <a href='#home'>Portfolio</a>
+        <span>{t('Portfolio')}</span>
       </div>
 
       <ul className='nav__ul'>
         {navItems.map((item, index) => 
         <li key={index} style={{display:toggle ? 'block' : 'none'}} className='nav__li'>
-          <a href={`#${item.id}`} onClick={(event) => { handleScrollSmoothly(event); handleClickRemoveLi(); }}>
+          <Link to={`#${item.id}`} onClick={(event) => { handleScrollSmoothly(event); handleClickRemoveLi(); }}>
             {item.name}
-          </a>
+          </Link>
         </li>
         )}
       </ul>
@@ -133,12 +146,12 @@ function Navbar() {
         <button className='nav__toggle' onClick={handleToggle}>
           <FontAwesomeIcon icon={faBars} size='2x' style={{ color : 'white' }} />
         </button>
-        <div>
-          <FontAwesomeIcon icon={faLanguage} size='2x' style={{ color : 'white' }} />
-          <span>Languages</span>
-        </div>
-        <a href='https://github.com/LHKU/React_test2.git' target="blank">
-          <span>GitHub</span>
+        <button className='nav__lang' onClick={onChangeLang}>
+          <FontAwesomeIcon icon={faLanguage} size='2x' style={{ color : 'white' }}  />
+          <span>{t('Languages')}</span>
+        </button>
+        <a href='https://github.com/LHKU/React_test2.git' target="blank" rel="noopener noreferrer">
+          <span>{t('GitHub')}</span>
           <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='1x' className='nav__github' style={{ color : 'white' }} />
           <FontAwesomeIcon icon={faGithub} size='2x' className='nav__github' style={{ color : 'white' }} />
         </a>

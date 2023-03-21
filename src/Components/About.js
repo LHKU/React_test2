@@ -7,9 +7,13 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLanguages, setSkills } from '../store.js';
+import { useTranslation } from 'react-i18next';
 
 
 function About() {
+
+  // react-i18next 
+  const { t } = useTranslation();
 
   const languages = useSelector((state)=>state.dataSlice.languages);
   const skills = useSelector((state)=>state.dataSlice.skills);
@@ -58,7 +62,7 @@ function About() {
   return (
     <div id='about'>
       <div className='about__margin'>
-        <h1>About me</h1>
+        <h1>{t('About me')}</h1>
 
         <div className='about__boxsort-lang'>
           {languages.map((language, index) => (
@@ -74,7 +78,7 @@ function About() {
           {skills.map((skill, index) => (
             <div key={index} className='about__whitebox'>
               <FontAwesomeIcon icon={skillIcons[skill.icon]} className='about__icon-str' />
-              <h2>{skill.title}</h2>
+              <h2>{t(skill.title)}</h2>
             </div>
           ))}
         </div>
@@ -84,7 +88,7 @@ function About() {
           {skills.map((skill, index) => (
             <div key={index}>
               <FontAwesomeIcon icon={skillIcons[skill.icon]} className='about__icon-str' />
-              <h2>{skill.title}</h2>
+              <h2>{t(skill.title)}</h2>
             </div>
           ))}
         </div>

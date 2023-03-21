@@ -1,9 +1,13 @@
 
 import '../App.css';
 import img_sakura from '../Image/sakura_home.jpg';
+import { useTranslation } from 'react-i18next';
 
 
 function Home() {
+
+  // react-i18next 
+  const { t } = useTranslation();
 
   // snow animation
   const snowflakes = Array.from({ length: 25 }).map((_, i) => (
@@ -17,11 +21,11 @@ function Home() {
       <div className='home__container'>
       <img src={img_sakura} alt='sakura' className='home__avatar'></img>
         <h1 className='home__title'>
-          Hello, <br />
-          Dreams Come to Life
+          {t('Hello,')}<br />
+          {t('Dreams Come to Life')}
         </h1>
         <h2 className='home__description'>
-        IT Engineer currently residing in Tokyo, Japan.
+        {t('IT Engineer currently residing in Tokyo, Japan.')}
         </h2>
       </div>
     </div>

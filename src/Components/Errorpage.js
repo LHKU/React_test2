@@ -1,6 +1,7 @@
 import '../App.css';
 import { useNavigate } from 'react-router-dom'
 
+
 const errorMessage = '404';
 const pageNotFoundMessage = 'Page not found';
 

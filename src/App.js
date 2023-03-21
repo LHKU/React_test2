@@ -9,8 +9,7 @@ import Review from './Components/Review.js';
 import Contact from './Components/Contact.js';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
-import { useTranslation } from 'react-i18next';
-import i18n from 'i18next';
+
 
 function App() {
 
@@ -19,29 +18,13 @@ function App() {
     window.history.scrollRestoration = 'manual'
   }, []);
 
-  // react-i18next 
-  const { t } = useTranslation();
-
-  const onChangeLang = () => {
-    if (i18n.language === 'ko') {
-      i18n.changeLanguage('en');
-    } else {
-      i18n.changeLanguage('ko');
-    }
-  };
-
 
   return (
     <div id='app'>
-      <div style={{color:'white', fontSize:'20px'}}>{t('helloWorld')}</div>
-      <button style={{color:'red', fontSize:'20px'}} onClick={onChangeLang}>
-        Change Language
-      </button>
       <Routes>
         <Route path='/' element={
           <>
             <Navbar></Navbar>
-            <div style={{color:'white', fontSize:'20px'}}>{t('helloWorld')}</div>
             <Home></Home>
             <About></About>
             <Goals></Goals>
@@ -79,9 +62,9 @@ function App() {
         // Review Section 마크업, 디자인 (완)
         // 최하단 Thank you Section 마크업, 디자인 (완)
         // Navbar 각 페이지내 이동 a태그로 구현하기, 깃허브링크도 걸어두기 -> 반응형도 살피기 (완)
-        // i18next 라이브러리로 다국어 설정하고 반응형도 살피기 -> 노션에도 정리하기 
+        // i18next 라이브러리로 다국어 설정하고 반응형도 살피기 (완)
         // 최종 리팩토링 (반응형 확인, 변수명 확인, 크롬 개발자도구에서 컴포넌트 성능 확인, 삭선그어진 불필요한 CSS는 없는지,
-        참고되는 주석은 제외하고 쓸데없는 주석 모두 삭제)
+        참고되는 주석은 제외하고 쓸데없는 주석 모두 삭제) (완)
         // README.md 파일 기존내용 날리고 코드내용 설명 작성하기 
         // npm으로 빌드하고 깃에 최종커밋하기(영어로..), 깃허브 페이지에 개인도메인으로 호스팅하고 ssl설정하기 
         */}

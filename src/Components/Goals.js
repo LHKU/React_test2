@@ -8,9 +8,14 @@ import RN from '../Image/RN.png';
 import TS from '../Image/TS.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { setActiveBtn } from '../store.js';
+import { useTranslation } from 'react-i18next';
+
 
 
 function Goals() {
+
+  // react-i18next 
+  const { t } = useTranslation();
 
   const images = {
     JS: JS,
@@ -46,7 +51,7 @@ function Goals() {
 
   return (
     <div id='goals'>
-      <h1>My goals</h1>
+      <h1>{t('My goals')}</h1>
       <div className='goals__title'>
         <button className={`goals__btn ${activeBtn === 'front' ? 'active' : ''}`} onClick={() => handleBtnClick('front')}>Front-end</button>
         <button className={`goals__btn ${activeBtn === 'back' ? 'active' : ''}`} onClick={() => handleBtnClick('back')}>Back-end</button>

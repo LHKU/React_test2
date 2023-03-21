@@ -91,6 +91,8 @@ p {
   margin: 0px 10px;
   cursor: pointer;
   color: $color-white;
+  font-size: $font-regular;
+  font-weight: $weight-regular;
   padding: 10px;
 }
 
@@ -107,16 +109,19 @@ p {
   align-items: center;
 }
 
-.nav__title a {
+.nav__title span {
   margin: 0px 4px;
   color: $color-white;
+  font-size: $font-regular;
+  font-weight: $weight-regular;
 }
 
 .nav__right {
   display: flex;
+  align-items:center;
 }
 
-.nav__right div,
+.nav__lang,
 .nav__right a {
   margin: 0px 10px;
   display: flex;
@@ -127,6 +132,8 @@ p {
 .nav__right span {
   margin: 0px 4px;
   color: $color-white;
+  font-size: $font-regular;
+  font-weight: $weight-regular;
 }
 
 .nav__github:nth-of-type(2) {
@@ -492,7 +499,7 @@ body {
     top: 8px;
   }
 
-  .nav__title a {
+  .nav__title span {
     font-size: $font-regular;
   }
 

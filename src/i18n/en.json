@@ -1,6 +1,23 @@
 {
   "translation": {
     "helloWorld": "Hello, World!!!TEST",
-    "Home": "Home"
+    "Home": "Home",
+    "About me" : "About me",
+    "My goals" : "My goals",
+    "Review" : "Review",
+    "Contact" : "Contact",
+    "Portfolio" : "Portfolio",
+    "Languages" : "Languages",
+    "GitHub" : "GitHub",
+    "Hello," : "Hello,",
+    "Dreams Come to Life" : "Dreams Come to Life",
+    "IT Engineer currently residing in Tokyo, Japan." : "IT Engineer currently residing in Tokyo, Japan.",
+    "Skill used" : "Skill used",
+    "Library" : "Library",
+    "Tools" : "Tools",
+    "This site uses Responsive Web Design" : "This site uses Responsive Web Design",
+    "Network Engineer Experience" : "Network Engineer Experience",
+    "Constant self-development" : "Constant self-development",
+    "Clear sense of purpose" : "Clear sense of purpose"
   }
 }

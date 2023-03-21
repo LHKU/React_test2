@@ -1,6 +1,23 @@
 {
   "translation": {
     "helloWorld": "こんにちは、世界!!テスト",
-    "Home": "ホーム"
+    "Home": "ホーム",
+    "About me" : "私について",
+    "My goals" : "私の目標",
+    "Review" : "レビュー",
+    "Contact" : "フッター",
+    "Portfolio" : "ポートフォリオ",
+    "Languages" : "言語変更",
+    "GitHub" : "ギットハブ",
+    "Hello," : "こんにちは、",
+    "Dreams Come to Life" : "夢は人生にやってくる",
+    "IT Engineer currently residing in Tokyo, Japan." : "現在、日本の東京に住んでいるITエンジニアです。",
+    "Skill used" : "使用スキル",
+    "Library" : "ライブラリー",
+    "Tools" : "ツール",
+    "This site uses Responsive Web Design" : "レスポンシブ Web デザインを使用中です。",
+    "Network Engineer Experience" : "ネットワークエンジニアの経験",
+    "Constant self-development" : "絶え間ない自己開発",
+    "Clear sense of purpose" : "明確な目的意識"
   }
 }
