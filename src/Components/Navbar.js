@@ -24,13 +24,14 @@ function Navbar() {
 
   const navRef = useRef(null);
 
-  // Paths that do not correspond to "validRoutes" by storing the current location set Navbar's transparency to zero.
+  // Paths that do not correspond to "validRoutes" by storing the current location set Navbar's opacity to zero.
   const location = useLocation(); 
   const validRoutes = ['/']; // Paths that require navbar are added to validRoutes
   const isNotFoundPage = !validRoutes.includes(location.pathname);
 
   const navbarStyle = {
     opacity: isNotFoundPage ? 0 : 1,
+    pointerEvents: isNotFoundPage ? 'none' : 'auto' //pointerEvents, not PointerEvent.
   };
 
 

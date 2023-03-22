@@ -61,7 +61,7 @@ function About() {
 
   return (
     <div id='about'>
-      <div className='about__margin'>
+      <div className='about__container'>
         <h1>{t('About me')}</h1>
 
         <div className='about__boxsort-lang'>

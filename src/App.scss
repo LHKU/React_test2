@@ -253,7 +253,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 1100px;
-  padding: 40px;
+  padding: 80px;
   padding-top: 120px;
   text-align: center;
   width: 100%;
@@ -261,7 +261,7 @@ body {
 
 .about__boxsort-lang {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 60px 0px;
 }
 
@@ -269,12 +269,8 @@ body {
   border: 3px solid $color-dark-black;
   padding: 50px;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-}
-
-.about__margin {
-  margin: 0px 80px;
+  width: 130px;
+  height: 130px;
 }
 
 #about h1 {
@@ -287,7 +283,7 @@ body {
 
 .about__boxsort-str {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 60px 0px;
 }
 
@@ -295,8 +291,8 @@ body {
   background-color: $color-white;
   padding: 50px;
   border-radius: 10px;
-  width: 400px;
-  height: 300px;
+  width: 350px;
+  height: 250px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -566,6 +562,7 @@ body {
 
   .goals__container {
     flex: 0 0 calc(50% - 140px);
+    margin: 0px;
     margin-bottom: 20px;
   }
 
@@ -588,8 +585,6 @@ body {
     padding-left: 70px;
     padding-right: 70px;
   }
-
-
 }
 
 
@@ -616,7 +611,6 @@ body {
   p {
     font-size: $font-regular;
   }
-
 
   //about
   #about {
@@ -675,14 +669,13 @@ body {
   padding: 20px;
   font-size: $font-regular;
   }
-
 }
 
 
 @media screen and (max-width: 580px) {
   //goals
   #goals {
-    height: 950px;
+    height: 900px;
   }
 
   .goals__img {
@@ -705,11 +698,16 @@ body {
 
   //review
   .review__slice {
-    font-size: calc($font-large);
+    font-size: calc($font-large - 10px);
   }
-
-
 }
 
+
+@media screen and (max-width: 359px) {
+  //goals
+  #goals {
+    height: 1150px;
+  }
+}
 
 
