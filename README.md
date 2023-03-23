@@ -10,7 +10,11 @@ The website was constructed in a responsive manner.
 
 If there is a problem with the API server, the error screen is displayed.
 
-The libraries and tools used are as follows.
+Domain access is only available in Korea and Japan.
+
+The website was constructed in a responsive manner.
+
+The libraries used are as follows.
 --Redux Toolkit
 --useEffect
 --axios
