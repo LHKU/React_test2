@@ -14,7 +14,7 @@ import i18n from './i18n/i18n.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
         <BrowserRouter>
@@ -22,7 +22,7 @@ root.render(
         </BrowserRouter>
       </I18nextProvider>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

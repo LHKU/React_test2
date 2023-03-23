@@ -52,6 +52,7 @@ function Review() {
             <p>axios</p>
             <p>react-router-dom</p>
             <p>useRef</p>
+            <p>useCallback</p>
             <p>i18next</p>
             <p>SCSS</p> 
           </div>
@@ -59,6 +60,7 @@ function Review() {
             <h2>{t('Tools')}</h2>
             <p>Node.js</p>
             <p>Google Cloud Platform</p>
+            <p>CloudFlare</p>
             <p>GitHub</p>
           </div>
         </div>

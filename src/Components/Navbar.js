@@ -2,12 +2,13 @@ import '../App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faLanguage, faArrowUpRightFromSquare, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToggle, setIsNavColored } from '../store.js';
 import { useLocation, Link ,useNavigate } from 'react-router-dom';
 import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
+
 
 function Navbar() {
 
@@ -95,23 +96,9 @@ function Navbar() {
 
   const navigate = useNavigate();
 
-  const handleScrollSmoothly = (event) => {
-    event.preventDefault(); //Blocks the default behavior of the event. Here, it blocks the browser's default scroll function.
-    const targetId = event.currentTarget.hash.slice(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: "smooth"
-      });
-      navigate(`#${targetId}`);
-      handleClickRemoveLi();
-    }
-  };
-
   // Click the li tag in the reactive type to hide all li elements(=Hide toggle).
-  // cf. Click is implemented as onClick in JSX
-  const handleClickRemoveLi = () => {
+  // UseCallback for memoization
+  const handleClickRemoveLi = useCallback(() => {
     const navLi = document.querySelectorAll('.nav__li');
     if (window.innerWidth <= 1024) {
       navLi.forEach((li) => {
@@ -123,8 +110,22 @@ function Navbar() {
         li.style.display = 'block';
       });
     }
-  };
-  
+  }, [dispatch, toggle]);
+
+  const handleScrollSmoothly = useCallback((event) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.hash.slice(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth"
+      });
+      navigate(`#${targetId}`);
+      setTimeout(() => handleClickRemoveLi(), 100); 
+    }
+  }, [navigate, handleClickRemoveLi]); 
+
 
   return (
     <div id='nav' ref={navRef} style={navbarStyle}>
@@ -136,7 +137,8 @@ function Navbar() {
       <ul className='nav__ul'>
         {navItems.map((item, index) => 
         <li key={index} style={{display:toggle ? 'block' : 'none'}} className='nav__li'>
-          <Link to={`#${item.id}`} onClick={(event) => { handleScrollSmoothly(event); handleClickRemoveLi(); }}>
+          {/* Since the click range of Link is a content area, a padding value was given. */}
+          <Link to={`#${item.id}`} style={{padding: '12px'}} onClick={(event) => { handleScrollSmoothly(event); }}>
             {item.name}
           </Link>
         </li>

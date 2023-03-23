@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faJs, faNode, faReact } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faGraduationCap, faLightbulb } from '@fortawesome/free-solid-svg-icons'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLanguages, setSkills } from '../store.js';
@@ -35,6 +35,9 @@ function About() {
   };
 
 
+  // When the api server is down, use setError to display an error screen.
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     axios.get('https://nodejs-test-380807.an.r.appspot.com/')
       .then(response => {
@@ -43,6 +46,7 @@ function About() {
       })
       .catch(error => {
         console.log(error);
+        setError('Error: Failed to fetch data from json server! Please check if the server is down');
       });
   }, [dispatch]);
 
@@ -63,35 +67,40 @@ function About() {
     <div id='about'>
       <div className='about__container'>
         <h1>{t('About me')}</h1>
-
-        <div className='about__boxsort-lang'>
-          {languages.map((language, index) => (
-            <div key={index}>
-              <FontAwesomeIcon icon={languageIcons[language.icon]} className='about__icon-lang' />
-              <h2>{language.name}</h2>
+        {/* If the api server goes down with a trinomial equation, I will show you an error screen. */}
+        {error ? (
+          <div className="error-message">{error}</div>
+        ) : (
+          <>
+            <div className='about__boxsort-lang'>
+              {languages.map((language, index) => (
+                <div key={index}>
+                  <FontAwesomeIcon icon={languageIcons[language.icon]} className='about__icon-lang' />
+                  <h2>{language.name}</h2>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className='about__boxsort-str'>
-          {skills.map((skill, index) => (
-            <div key={index} className='about__whitebox'>
-              <FontAwesomeIcon icon={skillIcons[skill.icon]} className='about__icon-str' />
-              <h2>{t(skill.title)}</h2>
+            <div className='about__boxsort-str'>
+              {skills.map((skill, index) => (
+                <div key={index} className='about__whitebox'>
+                  <FontAwesomeIcon icon={skillIcons[skill.icon]} className='about__icon-str' />
+                  <h2>{t(skill.title)}</h2>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* responsive - about__boxsort-str */}
-        <div className='about__responsive'>
-          {skills.map((skill, index) => (
-            <div key={index}>
-              <FontAwesomeIcon icon={skillIcons[skill.icon]} className='about__icon-str' />
-              <h2>{t(skill.title)}</h2>
+            {/* responsive - about__boxsort-str */}
+            <div className='about__responsive'>
+              {skills.map((skill, index) => (
+                <div key={index}>
+                  <FontAwesomeIcon icon={skillIcons[skill.icon]} className='about__icon-str' />
+                  <h2>{t(skill.title)}</h2>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        
+          </>
+        )}
       </div>
     </div>
   );

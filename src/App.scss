@@ -93,7 +93,8 @@ p {
   color: $color-white;
   font-size: $font-regular;
   font-weight: $weight-regular;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .nav__li:hover {
@@ -322,6 +323,12 @@ body {
   margin-top: 15px !important;
 }
 
+.error-message {
+  font-size: $font-medium;
+  font-weight: $weight-bold;
+  color: $color-light-red;
+}
+
 
 /* Goals */
 #goals {
@@ -446,6 +453,7 @@ body {
 .review__img {
   width: 450px;
   height: 250px;
+  margin-top: 30px;
   margin-bottom: 30px;
   border: 10px solid $color-white;
 }

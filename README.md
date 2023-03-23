@@ -1,8 +1,14 @@
-Although there are few dynamic elements, it is a homepage written in react for study.
+It's not a dynamic page, but I used React to study and put some dynamic elements in it.
 
-I don't need a dynamic function, but I'm making a json server for studying and connecting it with the server to receive data.
+I made a json server(node.js) and hosted it through GCP.
 
-It's a website that's made in a responsive way.
+The client was hosted via GitHub and Cloudflare.
+
+Domain access is only available in Korea and Japan.
+
+The website was constructed in a responsive manner.
+
+If there is a problem with the API server, the error screen is displayed.
 
 The libraries and tools used are as follows.
 --Redux Toolkit
@@ -10,8 +16,10 @@ The libraries and tools used are as follows.
 --axios
 --react-router-dom
 --useRef
+--useCallback
 --i18next
 --SCSS
 --Node.js
 --Google Cloud Platform
+--CloudFlare
 --GitHub
